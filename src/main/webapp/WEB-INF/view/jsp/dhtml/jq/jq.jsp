@@ -55,7 +55,23 @@ jQuery(document).ready(function() {
 			console.log("--table--");
 			console.log(rows);
 			console.log(JSON.stringify(rows));
-			
+			$.ajax({
+                    type:"POST",
+                    //headers:
+                    //    {"Content-type":"application/json"}
+                    // ,
+                    contentType: "application/json",
+                    url: "/dhtml/post",
+                    data: JSON.stringify(rows),
+                    //processData: false,
+                    success: function(msg) {
+                        console.log(msg);
+                    }
+                });
+               // CONTROLLERISSA:
+               // public String a(@RequestBody List<HashMap<String,String> items) {
+               // .....
+               //}
 			console.log("----table--");
 		};
 
